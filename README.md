@@ -15,4 +15,18 @@ The project requires data from three data sources:
   - Merge the Wiki data set and the data set obtained using the csv file to produce a dataframe with complete latitude and longitude information for each postal code.
   - Use the df.explode() method to break the dataframe into rows where each row stores information of a neighborhood (previously each row storers information of a list of neighborhood).
   - Once the data are ready, we use the Foursquare API to get the venues near each neighborhood
+# 4. Methodology
+In first step we have collected the required geospatial data using Wikipedia and the provided csv file for each neighborhood in Toronto. We have also created a map visualization to see how the neighborhoods are spread out across Toronto.
 
+In the second step in our analysis, we use Foursquare API to obtain the list of venue and the category of all venues for each neighborhood in Toronto. We then identify the 10 most common venues for each neighborhood and create a one-hot encoded dataframe so venue categories can be used for k-means clustering
+
+In third and final step we will use the k-means clustering algorithm to segment neighborhoods into clusters based on the most common venues of each neighborhood. The most common venue types in a cluster will be used to characterize that cluster. A map of clusters will also be generated for better visualization of where to visit
+# 5. Results
+The following observations are made after segmenting the neighborhood in Toronto into 4 clusters
+#### Neighborhoods in cluster 1 are the best place to visit for tourists in need of airport service.
+#### Cluster 2 and 3 has a high density of bars, coffee shops and restaurants. Tourists who want recreational activities should visit neighorboods in those clusters
+#### Tourists who want an escape from urban life could visit neighborhoods in cluster 3 and 4 for their high density of parks and camping areas
+# 6. Conclusion
+The purpose of this project was to identify which area in Toronto tourists should visit given their interests. By using the venue information obtained from Foursquare data we have identified all venues and their category for each neighborhood in Toronto, and then generated a one-hot encoded dataframe to represent the frequency of each venue type. Clustering of those locations was then performed in order to create major zones of interest (based on the most common venue types).
+
+Final decission on optimal tourist location will be made by visitors based on their specific interests and the location of their residence.
